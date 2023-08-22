@@ -1,0 +1,50 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block title %}ESTA ES LA PAGINA DE AUTORES {% endblock %}
+
+{% block content %}
+<h1>Autores</h1>
+
+<h3>{{ message }}</h3>
+<form action="{% url 'authors' %}" method="post"> {% csrf_token %}
+    <table>
+    {{ form.as_table }} 
+    </table>
+
+    <input type="submit" value="Crear Autor">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th style="background-color:green; text-align: center">Nombre</th>
+            <th style="background-color:green; text-align: center">Rol</th>
+            <th style="background-color:green;text-align: center">Nacionalidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+        <tr>
+            
+            <td style="text-align: center">
+                {{ author.name}}
+            </td>
+            <td style="text-align: center">
+                {{ author.role}}
+            </td>
+            <td style=" text-align: center">
+                {{ author.nationality}}
+            </td>
+            <td>
+                <a class="btn" style="background-color:green ;color:black" href="{% url 'editAuthor' author.id %}">Editar</a>
+            </td>
+            <td>
+                <a class="btn" style="background-color:red ;color:black" href="{% url 'deleteAuthor' author.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

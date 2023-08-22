@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block title %}Buscador de Autores {% endblock %}
+
+{% block content %}
+<form action="{% url 'searchComic' %}" method="GET"> 
+
+    <input type="Char" name="name" id="comic" placeholder="Inserte Nombre">
+    <input type="submit" value="Buscar Comic">
+
+</form>
+<h2>{{ message }}</h2>
+    
+{% endblock %}

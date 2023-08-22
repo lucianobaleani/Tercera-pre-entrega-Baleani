@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block title %}Tercera Entrega <br> Curso de Python  <br> Comision 43870{% endblock %}
+
+{% block content %}
+    <h1>LUCIANO BALEANI</h1>
+
+    <br>
+    <h2>Buscadores</h2>
+    <form action="{% url 'searchComic' %}" method="GET"> 
+
+        <input type="char" name="name" id="author" placeholder="Inserte Comic">
+        <input type="submit" style="background-color: aquamarine" value="Buscar Comic">
+    
+    </form>
+    <br>
+    <form action="{% url 'searchAuthor' %}" method="GET"> 
+
+        <input type="char" name="name" id="author" placeholder="Inserte Autor">
+        <input type="submit" style="background-color: green" value="Buscar Autor">
+    
+    </form>
+    <br>
+    <form action="{% url 'searchEditorial' %}" method="GET"> 
+
+        <input type="char" name="name" id="editorial" placeholder="Inserte Editorial">
+        <input type="submit" style="background-color: orange" value="Buscar Editorial">
+    
+    </form>
+    
+
+{% endblock %}
+

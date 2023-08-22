@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block title %}Buscador de Comics{% endblock %}
+
+{% block content %}
+
+{% if comics %}
+
+    <h1>RESULTADOS DE BUSQUEDA DE COMICS</h1>
+    {% for comic in comics %}
+        <h3>{{ comic.name }} - {{ comic.published_year }} - {{comic.editorial}}</h3>
+    {% endfor %}
+{% else %}
+
+    <h1>NO SE ENCONTRARON COMICS</h1>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block title %}ELIMINANDO AUTOR: <br> {{ author.name }} {% endblock %}
+
+{% block content %}
+<h3>{{ message }}</h3>
+
+<form action="{% url 'deleteEditorial' editorial.id %}" method="POST"> {% csrf_token %}
+
+    <table>
+    
+        {{ form.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="Eliminar">
+    
+    
+    </form>
+
+
+{% endblock %}

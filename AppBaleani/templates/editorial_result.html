@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block title %}Buscador de Autores{% endblock %}
+
+{% block content %}
+
+{% if editorials %}
+
+    <h1>RESULTADOS DE BUSQUEDA DE AUTORES</h1>
+    {% for editorial in editorials %}
+        <h3>{{ editorial.name }} - {{ editorial.country }} - {{editorial.state}}</h3>
+    {% endfor %}
+{% else %}
+
+    <h1>NO SE ENCONTRARON Editoriales</h1>
+
+{% endif %}
+
+{% endblock %}
